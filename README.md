@@ -13,8 +13,6 @@ Linear Support Vector Machine (SVM)
 [![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]()
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1045859.svg)](https://doi.org/10.5281/zenodo.1045859)
 
-*This is a part of a recently-concluded research: [On Breast Cancer Detection: An Application of Machine Learning Algorithms on the Wisconsin Diagnostic Dataset](http://arxiv.org/abs/1711.07831) (September 2017 - November 2017)* [[code](https://github.com/AFAgarap/wisconsin-breast-cancer)].
-
 Support vector machine (SVM) dikembangkan oleh Vapnik, dan telah digunakan di banyak aplikasi dunia nyata, terutama dalam kasus klasifikasi biner.
 Tujuan utamanya adalah menemukan hyperplane optimal yang memisahkan dua kelas dalam data _D_ tertentu. Klasifikasi data dilakukan dengan menggunakan fungsi keputusan _f (x) _:
 
