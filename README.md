@@ -9,10 +9,6 @@ Kelas : D4 TI 3A
 Linear Support Vector Machine (SVM)
 ==
 
-![](https://img.shields.io/badge/license-Apache--2.0-blue.svg)
-[![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]()
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1045859.svg)](https://doi.org/10.5281/zenodo.1045859)
-
 Support vector machine (SVM) dikembangkan oleh Vapnik, dan telah digunakan di banyak aplikasi dunia nyata, terutama dalam kasus klasifikasi biner.
 Tujuan utamanya adalah menemukan hyperplane optimal yang memisahkan dua kelas dalam data _D_ tertentu. Klasifikasi data dilakukan dengan menggunakan fungsi keputusan _f (x) _:
 
