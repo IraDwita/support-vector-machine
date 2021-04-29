@@ -1,3 +1,11 @@
+Nama : Ira Dwita Syafitri Tarigan 
+
+NPM : 1184024
+
+Kelas : D4 TI 3A
+
+
+
 Linear Support Vector Machine (SVM)
 ==
 
@@ -7,14 +15,14 @@ Linear Support Vector Machine (SVM)
 
 *This is a part of a recently-concluded research: [On Breast Cancer Detection: An Application of Machine Learning Algorithms on the Wisconsin Diagnostic Dataset](http://arxiv.org/abs/1711.07831) (September 2017 - November 2017)* [[code](https://github.com/AFAgarap/wisconsin-breast-cancer)].
 
-Support vector machine (SVM) was developed by Vapnik, and it has been used in many real-world applications, especially in cases of binary classification.
-Its main objective is to find the optimal hyperplane that separates two classes in a given data _D_. The classification of data is accomplished using the decision function _f(x)_:
+Support vector machine (SVM) dikembangkan oleh Vapnik, dan telah digunakan di banyak aplikasi dunia nyata, terutama dalam kasus klasifikasi biner.
+Tujuan utamanya adalah menemukan hyperplane optimal yang memisahkan dua kelas dalam data _D_ tertentu. Klasifikasi data dilakukan dengan menggunakan fungsi keputusan _f (x) _:
 
 ![](assets/input.png)
 
 ![](assets/decision_function.png)
 
-where `{-1,+1}` are the classes of given data. The learning parameters (weights `w`, and biases `b`) are obtained as the solution of the following optimization problem:
+di mana `{-1, + 1}` adalah kelas dari data yang diberikan. Parameter pembelajaran (bobot `w`, dan bias` b`) diperoleh sebagai solusi dari masalah pengoptimalan berikut:
 
 ![](assets/constrained-svm.png)
 
@@ -24,63 +32,50 @@ where `{-1,+1}` are the classes of given data. The learning parameters (weights 
 
 ![](assets/constraint-2.png)
 
-where `||w||_{2}` is the Euclidean norm (also known as the L2-norm), `\xi` is the cost function, and `C` is the penalty parameter (which may be an arbitrary value or a value obtained through hyper-parameter tuning). The corresponding unconstrained optimization problem is the following:
+di mana `|| w || _ {2}` adalah norma Euclidean (juga dikenal sebagai norma L2), `\ xi` adalah fungsi biaya, dan` C` adalah parameter penalti (yang mungkin berupa nilai arbitrer atau nilai yang diperoleh melalui penyetelan hyper-parameter). Masalah pengoptimalan tak terbatas yang sesuai adalah sebagai berikut:
 
 ![](assets/l1-svm.png)
 
-where `wx + b` is the function that returns the vector containing the scores for each classes (i.e. the predicted classes). The objective of the equation above is known as the primal form of L1-SVM, with the standard hinge loss. In this project, the L2-SVM variant of SVM was used as it is differentiable, and it provides a more stable result than the L1-SVM.
+di mana `wx + b` adalah fungsi yang mengembalikan vektor yang berisi skor untuk setiap kelas (yaitu kelas yang diprediksi). Sasaran persamaan di atas dikenal sebagai bentuk primal L1-SVM, dengan kerugian engsel standar. Dalam proyek ini, varian L2-SVM dari SVM digunakan karena dapat dibedakan, dan memberikan hasil yang lebih stabil daripada L1-SVM.
 
 ![](assets/l2-svm.png)
 
-For this implementation, the SVM was written using Python and TensorFlow (as the machine intelligence library), and the problem tackled is a binary classification of breast cancer using the [Wisconsin diagnostic dataset](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)).
+Untuk implementasi ini, SVM ditulis menggunakan Python dan TensorFlow (sebagai pustaka kecerdasan mesin), dan masalah yang ditangani adalah klasifikasi biner menggunakan [Wisconsin diagnostic dataset](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)).
 
-The official dataset information states the following:
 
-```
-Features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass.
-They describe the characteristics of the cell nuclei present in the image.
-```
+Berikut adalah distribusi kelas dari dataset tersebut:
 
-The following is the class distribution of the dataset:
+| Kelas | Jumlah kejadian |
+| ----- | ------------------- |
+| jinak | 357 |
+| Ganas | 212 |
 
-|Class|Number of instances|
-|-----|-------------------|
-|benign|357|
-|malignant|212|
+Sebanyak 569 instans. Dalam implementasi ini, kelasnya adalah `{-1, +1}`, masing-masing mewakili kelas jinak dan kelas ganas.
 
-A total of 569 instances. In this implementation, the classes were `{-1, +1}`, representing the benign class and malignant class respectively.
-
-The features included in the dataset are the following:
+Fitur-fitur yang termasuk dalam kumpulan data tersebut adalah sebagai berikut:
 
 * radius
-* texture
+* tekstur
 * perimeter
 * area
-* smoothness
-* compactness
-* concavity
-* concave points
-* symmetry
-* fractal dimension
+* kehalusan
+* kekompakan
+* cekung
+* titik cekung
+* simetri
+* dimensi fraktal
 
-Each feature had its (1) mean, (2) standard error, and (3) "worst" or largest (mean of the three largest values) computed. Hence, the dataset having 30 features.
+Setiap fitur memiliki (1) mean, (2) kesalahan standar, dan (3) "terburuk" atau terbesar (rata-rata dari tiga nilai terbesar) yang dihitung. Oleh karena itu, dataset memiliki 30 fitur.
 
-|Variable|Instances|Shape|
-|--------|---------|-----|
-|x (feature)|569|(569, 30)|
-|y (label)|569|(569)|
+| Variabel | Contoh | Bentuk |
+| -------- | --------- | ----- |
+| x (fitur) | 569 | (569, 30) |
+| y (label) | 569 | (569) |
 
-## Pre-requisite
+## Prasyarat
 
-It is recommended that you have Python 3.x (specifically 3.5 or 3.6) installed in your system. Install the Python libraries specified in the following command to run the program.
+Direkomendasikan agar Anda menginstal Python 3.x (khususnya 3.5 atau 3.6) di sistem Anda. Instal pustaka Python yang ditentukan dalam perintah berikut untuk menjalankan program.
 
-```buildoutcfg
-$ sudo pip3 install matplotlib numpy sklearn tensorflow
-```
-
-You may opt to use `tensorflow-gpu` instead of `tensorflow`, it's entirely your choice.
-
-## Usage
 
 First, clone the project.
 ```
